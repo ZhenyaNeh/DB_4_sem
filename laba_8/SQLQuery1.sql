@@ -1,0 +1,15 @@
+DROP VIEW Teachers
+GO
+CREATE VIEW [Teachers]
+as SELECT * FROM TEACHER
+GO
+SELECT * FROM Teachers
+GO
+
+DROP VIEW expen
+GO
+CREATE VIEW [expen]
+as SELECT * FROM Expenses
+GO
+SELECT * FROM expen
+GO

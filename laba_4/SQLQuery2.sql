@@ -1,0 +1,17 @@
+use UNIVERSITY
+
+--SELECT * FROM AUDITORIUM SELECT* FROM AUDITORIUM_TYPE
+
+SELECT AUDITORIUM.AUDITORIUM, AUDITORIUM_TYPE.AUDITORIUM_TYPENAME
+FROM AUDITORIUM inner join AUDITORIUM_TYPE
+ON AUDITORIUM.AUDITORIUM_TYPE = AUDITORIUM_TYPE.AUDITORIUM_TYPE 
+and AUDITORIUM_TYPE.AUDITORIUM_TYPENAME like '%компьютер%'
+
+use N_MyBASE 
+
+--SELECT* FROM  Departments SELECT* FROM Expenses SELECT* FROM Products
+
+SELECT Departments.Department_Name, Expenses.Recording_Data
+FROM Departments INNER JOIN Expenses
+ON Departments.Department_Name = Expenses.Department_Name
+and Expenses.Recording_Data like '%2023-01%'

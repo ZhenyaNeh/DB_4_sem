@@ -1,0 +1,21 @@
+USE UNIVERSITY
+
+SELECT SUBJECT, 
+(SELECT COUNT(*) 
+	FROM PROGRESS p2
+	WHERE p1.SUBJECT = p2.SUBJECT 
+	and p1.NOTE = p2.NOTE)[COUNT_OF_STUDENTS]
+FROM PROGRESS p1
+GROUP BY SUBJECT, IDSTUDENT, NOTE
+HAVING max(p1.NOTE) BETWEEN 8 AND 9;
+
+USE N_MyBASE
+
+SELECT Department_Name,
+(SELECT COUNT(*)
+	FROM Expenses p2
+	WHERE p1.Department_Name = p2.Department_Name
+	AND p1.Consuption_Limit > 800)[COUNT_OF_DEV]
+FROM Expenses p1
+GROUP BY Department_Name, Consuption_Limit
+HAVING max(p1.Consuption_Limit) BETWEEN 500 AND 20000;

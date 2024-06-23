@@ -1,0 +1,23 @@
+USE UNIVERSITY;
+
+--select* From GROUPS select* From PROGRESS
+
+SELECT (2014 - GROUPS.YEAR_FIRST)[COURSE],FACULTY.FACULTY_NAME, 
+ROUND(AVG(CAST(PROGRESS.NOTE AS FLOAT(4))), 2)[AVG_NOTE]
+FROM FACULTY 
+INNER JOIN GROUPS ON FACULTY.FACULTY = GROUPS.FACULTY
+INNER JOIN STUDENT ON STUDENT.IDGROUP = GROUPS.IDGROUP
+INNER JOIN PROGRESS ON PROGRESS.IDSTUDENT = STUDENT.IDSTUDENT
+WHERE PROGRESS.SUBJECT = '¡ƒ' OR PROGRESS.SUBJECT = 'Œ¿Ëœ' 
+GROUP BY GROUPS.YEAR_FIRST, GROUPS.PROFESSION, FACULTY.FACULTY_NAME;
+
+USE N_MyBASE
+
+SELECT Expenses.Department_Name, 
+ROUND(AVG(CAST(Expenses.Consuption_Limit as float(4))), 2)[AVG_LINIT]
+FROM Expenses
+inner join Departments ON Expenses.Department_Name = Departments.Department_Name
+inner join Products ON Expenses.Product_Name = Products.Product_Name
+WHERE Departments.Department_Name = 'Dev_1' OR Departments.Department_Name = 'Dev_5'
+GROUP BY Expenses.Department_Name
+

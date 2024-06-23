@@ -1,0 +1,26 @@
+USE UNIVERSITY
+
+SELECT AUDITORIUM.AUDITORIUM_TYPE,
+max(AUDITORIUM.AUDITORIUM_CAPACITY)[MAX],
+min(AUDITORIUM.AUDITORIUM_CAPACITY)[MIN],
+avg(AUDITORIUM.AUDITORIUM_CAPACITY)[AVG],
+sum(AUDITORIUM.AUDITORIUM_CAPACITY)[SUM],
+count(*)[COUNT_AUDITORIES]
+FROM AUDITORIUM 
+inner join AUDITORIUM_TYPE ON AUDITORIUM.AUDITORIUM_TYPE = AUDITORIUM_TYPE.AUDITORIUM_TYPE
+GROUP BY AUDITORIUM.AUDITORIUM_TYPE
+
+
+USE N_MyBASE
+
+SELECT Expenses.Department_Name,
+max(Expenses.Consuption_Limit)[MAX],
+min(Expenses.Consuption_Limit)[MIN],
+avg(Expenses.Consuption_Limit)[AVG],
+sum(Expenses.Consuption_Limit)[SUM],
+count(*)[COUNT_LIMITS]
+FROM Expenses
+inner join Departments ON Expenses.Department_Name = Departments.Department_Name
+GROUP BY Expenses.Department_Name
+
+
